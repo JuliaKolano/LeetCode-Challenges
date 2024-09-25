@@ -47,6 +47,24 @@ class TwoSum {
     }
 
 
+    // One-pass Hash Table
+    // Time Complexity: O(n)
+    // Space Complexity: O(n)
+
+    public static int[] twoSum3(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] {map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+        // Return an empty array if no solution is found
+        return new int[] {};
+    }
+
+
     // Testing Cases
     public static void main(String[] args) {
 
@@ -56,12 +74,17 @@ class TwoSum {
         System.out.println(Arrays.toString(twoSum1(new int[] {3, 2, 4}, 6))); // Answer: [1, 2]
         System.out.println(Arrays.toString(twoSum1(new int[] {3, 3}, 6))); // Answer: [0, 1]
         
-
         // Two-pass Hash Table
-        System.out.println("Two-pass Hash Table:");
+        System.out.println("\nTwo-pass Hash Table:");
         System.out.println(Arrays.toString(twoSum2(new int[] {2, 7, 11, 15}, 9))); // Answer: [0, 1]
         System.out.println(Arrays.toString(twoSum2(new int[] {3, 2, 4}, 6))); // Answer: [1, 2]
         System.out.println(Arrays.toString(twoSum2(new int[] {3, 3}, 6))); // Answer: [0, 1]
+
+        // One-pass Hash Table
+        System.out.println("\nOne-pass Hash Table:");
+        System.out.println(Arrays.toString(twoSum3(new int[] {2, 7, 11, 15}, 9))); // Answer: [0, 1]
+        System.out.println(Arrays.toString(twoSum3(new int[] {3, 2, 4}, 6))); // Answer: [1, 2]
+        System.out.println(Arrays.toString(twoSum3(new int[] {3, 3}, 6))); // Answer: [0, 1]
     }
 
 }
