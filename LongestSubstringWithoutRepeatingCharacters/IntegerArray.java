@@ -9,7 +9,7 @@ public class IntegerArray {
     // Time Complexity: O(n)
     // Space Complexity: O(1)
 
-    public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring(String s) {
 
         int n = s.length();
         int maxLength = 0;

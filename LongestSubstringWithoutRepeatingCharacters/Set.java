@@ -9,7 +9,7 @@ public class Set {
     // Time Complexity: O(n)
     // Space Complexity: O(min(n,m)), where m is the character set size
     
-    public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring(String s) {
 
         int n = s.length();
         int maxLength = 0;
