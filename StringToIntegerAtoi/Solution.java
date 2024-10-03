@@ -12,13 +12,12 @@ package StringToIntegerAtoi;
 
 public class Solution {
 
-    // Time Complexity: O()
-    // Space Complexity: O()
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
 
     public int myAtoi(String s) {
 
         final int length = s.length();
-        final int maxLimit = Integer.MAX_VALUE / 10;
         int index = 0;
         int result = 0;
 
@@ -46,7 +45,7 @@ public class Solution {
             int digit = c - '0';
 
             // To avoid integer overflow
-            if (result > maxLimit || (result == maxLimit && digit > 7)) {
+            if (result > (Integer.MAX_VALUE - digit) / 10) {
                 return isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
             }
 
