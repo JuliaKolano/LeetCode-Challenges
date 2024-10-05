@@ -15,7 +15,7 @@ public class Recursion {
         if (p.isEmpty()) return s.isEmpty();
 
         boolean firstMatch = (!s.isEmpty() && 
-                (p.charAt(0) == s.charAt(0) || p.charAt(0) == '.'));
+                            (p.charAt(0) == s.charAt(0) || p.charAt(0) == '.'));
 
         if (p.length() >= 2 && p.charAt(1) == '*') {
 
