@@ -1,5 +1,8 @@
 package RomanToInteger;
 
+import java.util.HashMap;
+import java.util.Map;
+
 // Roman numerals are represented by seven different symbols: I, V, X, L, C, D, and M:
 // I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, and M = 1000.
 // For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII,
@@ -14,4 +17,26 @@ package RomanToInteger;
 
 public class Solution {
 
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
+
+    public int romanToInt(String s) {
+
+        int answer = 0;
+        Map<Character, Integer> map = new HashMap<>();
+
+        map.put('I', 1); map.put('V', 5); map.put('X', 10); map.put('L', 50);
+        map.put('C', 100); map.put('D', 500); map.put('M', 1000);
+
+        for (int i = 0; i < s.length(); i++) {
+
+            if (i < s.length() - 1 && map.get(s.charAt(i)) < map.get(s.charAt(i + 1))) {
+                answer -= map.get(s.charAt(i));
+            } else {
+                answer += map.get(s.charAt(i));
+            }
+        }
+
+        return answer;
+    }
 }
